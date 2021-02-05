@@ -7,7 +7,7 @@ RATING_CHOICES = [(0, "No response")] + [(i, str(i)) for i in range(1, 10)]
 
 class Rating(models.Model):
     subject = models.ForeignKey(to=Subject, on_delete=models.CASCADE)
-    sound = models.CharField(max_length=50)
+    sound = models.CharField(max_length=100)
     arousal = models.IntegerField(choices=RATING_CHOICES)
     dominance = models.IntegerField(choices=RATING_CHOICES)
     valence = models.IntegerField(choices=RATING_CHOICES)

@@ -11,6 +11,7 @@ services:
       - django_static:/app/django_static
     depends_on:
       - web
+      - node
   web:
     build:
       context: .
@@ -24,5 +25,14 @@ services:
       - 8000
     env_file:
       - ./docker/.env.dev
+  node:
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    expose:
+      - 5000
+    env_file:
+      - ./docker/.env.dev
+
 volumes:
   django_static:
