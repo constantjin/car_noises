@@ -16,7 +16,7 @@ def get_sounds(request):
     for sound_path in sound_paths:
         sound_with_ext = os.path.basename(sound_path)
         sound_name = os.path.splitext(sound_with_ext)[0]
-        sound_url = settings.SERVER_URL + settings.SOUNDS_URL + sound_with_ext
+        sound_url = settings.SOUNDS_URL + sound_with_ext
         sounds_list.append({"name": sound_name, "url": sound_url})
 
     return Response(sounds_list)

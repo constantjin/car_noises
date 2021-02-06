@@ -8,7 +8,7 @@ import End from "./pages/End";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-center m-auto">
+    <div className="h-screen flex flex-col justify-center items-center text-center">
       <Router>
         <Switch>
           <Route exact={true} path="/" component={Register} />
