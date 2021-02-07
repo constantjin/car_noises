@@ -12,8 +12,6 @@ COPY ./backend/requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY ./backend .
+RUN chmod u+x ./docker-entrypoint.sh
 
-RUN python manage.py makemigrations
-RUN python manage.py migrate
-RUN python manage.py collectstatic --noinput
-RUN python manage.py initadmin
+ENTRYPOINT ["sh", "./docker-entrypoint.sh"]

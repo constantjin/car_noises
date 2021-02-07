@@ -16,7 +16,6 @@ services:
     build:
       context: .
       dockerfile: ./docker/web/Dockerfile
-    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./backend:/app/backend
       - ./sounds:/app/sounds
