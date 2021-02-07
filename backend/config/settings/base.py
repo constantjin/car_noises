@@ -11,7 +11,12 @@ ENV_PATH = os.path.join(BASE_DIR, ".env")
 env = environ.Env(
     DEBUG=(bool, False),
 )
-environ.Env.read_env(env_file=ENV_PATH)
+
+# Optionally read .env file
+try:
+    environ.Env.read_env(env_file=ENV_PATH)
+except FileNotFoundError:
+    pass
 
 # SECURITY
 SECRET_KEY = env("DJANGO_SECRET_KEY")
